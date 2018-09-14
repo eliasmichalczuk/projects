@@ -41,13 +41,16 @@ public class Main {
 		do{
 			jogador.cartaAtual = jogador.getCarta();
 			comp.cartaAtual = comp.getCarta();
+			System.out.println("\nSua carta:");
 			deck.printCarta(jogador.cartaAtual);
 			
 			if(_vencedor == 2 || _vencedor == 0){
-				System.out.println("\nEscolha um atributo \n\n");
-				do {
+				System.out.println("\nEscolha um atributo");
+				
+				jogador.opcaoAtual = scan.nextInt();
+				while(jogador.opcaoAtual < 1 && jogador.opcaoAtual > 4) {
 					jogador.opcaoAtual = scan.nextInt();
-				}while(jogador.opcaoAtual < 1 && jogador.opcaoAtual > 4);
+				}
 				
 			}
 			else if(_vencedor == 1){
@@ -58,7 +61,7 @@ public class Main {
 					comp.opcaoAtual = rand.nextInt((5 - 1) + 1 + 1);
 				}
 				
-				System.out.println("\nComputador escolheu\n");
+				System.out.println("\nComputador escolheu " + comp.opcaoAtual + "!");
 			}
 			System.out.println("\nCarta do computador: ");
 			deck.printCarta(comp.cartaAtual);
@@ -68,17 +71,6 @@ public class Main {
 			
 			_vencedor = deck.getRoundResult(jogador, comp);
 			//TODO: comparar vencedor com usuario jogador DONE
-			if(_vencedor == 2){
-				if(!cartasEmpate.getDeck().isEmpty()) {
-					for(Carta carta : cartasEmpate.getDeck()) {
-						comp.addCartaDeck(carta);
-					}
-				}
-				jogador.addCartaDeck(comp.cartaAtual);
-				jogador.addCartaDeck(jogador.cartaAtual);
-				System.out.println("\nVocê ganhou o round\n");
-				
-			}
 			if(_vencedor == 1){
 				if(!cartasEmpate.getDeck().isEmpty()) {
 					for(Carta carta : cartasEmpate.getDeck()) {
@@ -87,11 +79,23 @@ public class Main {
 				}
 				comp.addCartaDeck(comp.cartaAtual);
 				comp.addCartaDeck(jogador.cartaAtual);
-				System.out.println("\nVocê perdeu o round\n");
+				System.out.println("\nVocê perdeu o round");
 			}
-			else{
+			if(_vencedor == 2){
+				if(!cartasEmpate.getDeck().isEmpty()) {
+					for(Carta carta : cartasEmpate.getDeck()) {
+						comp.addCartaDeck(carta);
+					}
+				}
+				jogador.addCartaDeck(comp.cartaAtual);
+				jogador.addCartaDeck(jogador.cartaAtual);
+				System.out.println("\nVocê ganhou o round");
+				
+			}
+			if(_vencedor == 0){
 				cartasEmpate.addCartaDeck(comp.cartaAtual);
 				cartasEmpate.addCartaDeck(jogador.cartaAtual);
+				System.out.println("\nEmpatou!");
 			}
 			
 			algoMediaGeral.addCartaDeck(comp.cartaAtual);
@@ -103,10 +107,10 @@ public class Main {
 		}while(!Compara(comp, jogador));
 		
 		if(jogador.verifica()){
-			System.out.println("\nVocê perdeu o jogo.\n");
+			System.out.println("\nVocê perdeu o jogo.");
 		}
 		else{
-			System.out.println("\nVocê ganhou o jogo\n");
+			System.out.println("\nVocê ganhou o jogo.");
 		}	
 		
 		/*TODO: criar rounds de jogadas, exibindo a primeira carta do deck do jogardor
@@ -150,7 +154,7 @@ public class Main {
 	        if (valores[i] > valores[indexOfMax])
 	            indexOfMax = i;
 	    }
-	    return indexOfMax;
+	    return indexOfMax+1;
 	}
 
 	public static boolean Compara(Usuario comp, Usuario jog)

@@ -30,8 +30,8 @@ public class Deck {
 			System.out.println(carta.getNome());
 			System.out.println("Velocidade: " + carta.getVelocidade());
 			System.out.println("Autonomia: " + carta.getAutonomia());
-			System.out.println("Envergadura: " + carta.getEnvergadura());
 			System.out.println("Comprimento: " + carta.getComprimento());
+			System.out.println("Envergadura: " + carta.getEnvergadura());
 			System.out.println("Peso na decolagem: " + carta.getPesoDecolagem());
 		}
 	}
@@ -39,8 +39,8 @@ public class Deck {
 			System.out.println(carta.getNome());
 			System.out.println("Velocidade: " + carta.getVelocidade());
 			System.out.println("Autonomia: " + carta.getAutonomia());
-			System.out.println("Envergadura: " + carta.getEnvergadura());
 			System.out.println("Comprimento: " + carta.getComprimento());
+			System.out.println("Envergadura: " + carta.getEnvergadura());
 			System.out.println("Peso na decolagem: " + carta.getPesoDecolagem());
 		
 	}
@@ -55,56 +55,158 @@ public class Deck {
 	}*/
 	public int getRoundResult(Usuario jogador, Usuario comp) {
 		//TODO: pegar atributo com corresponde a opcao + 1
-		if(jogador.opcaoAtual != 0) {
-			switch(jogador.opcaoAtual){
-			case 1: if(comp.cartaAtual.getVelocidade() > jogador.cartaAtual.getVelocidade()) {
+		/*if(jogador.opcaoAtual != 0)*/
+		int temp = 0;
+		if(jogador.opcaoAtual != 0) temp = 2;
+		else temp = 1;
+		
+		if(temp == 1) {
+			if(comp.cartaAtual.getVelocidade() > jogador.cartaAtual.getVelocidade())
 				return 1;
-			}
+				if(comp.cartaAtual.getVelocidade() == jogador.cartaAtual.getVelocidade())
+					return 0;
+				
+				System.out.println(comp.cartaAtual.getVelocidade());
 				return 2;
-			case 2: if(comp.cartaAtual.getAutonomia() > jogador.cartaAtual.getAutonomia()){
+				
+		}
+		if(temp == 2) {
+			if(comp.cartaAtual.getAutonomia() > jogador.cartaAtual.getAutonomia())
 				return 1;
-			}
-				return 2;
-			case 3: if(comp.cartaAtual.getComprimento() > jogador.cartaAtual.getComprimento()){
+			if(comp.cartaAtual.getAutonomia() == jogador.cartaAtual.getAutonomia())
+				return 0;
+			System.out.println(comp.cartaAtual.getAutonomia());
+			return 2;
+		}
+		
+		if(temp == 3) {
+			if(comp.cartaAtual.getComprimento() > jogador.cartaAtual.getComprimento())
 				return 1;
-			}
+				if(comp.cartaAtual.getComprimento() == jogador.cartaAtual.getComprimento())
+					return 0;
+				System.out.println(comp.cartaAtual.getComprimento());
 				return 2;
-			case 4: if(comp.cartaAtual.getEnvergadura() > jogador.cartaAtual.getEnvergadura()){
+		}
+		
+		if(temp == 4) {
+			if(comp.cartaAtual.getEnvergadura() > jogador.cartaAtual.getEnvergadura())
 				return 1;
-			}
+				if(comp.cartaAtual.getEnvergadura() == jogador.cartaAtual.getEnvergadura())
+					return 0;
+				System.out.println(comp.cartaAtual.getEnvergadura());
 				return 2;
-			case 5: if(comp.cartaAtual.getPesoDecolagem() > jogador.cartaAtual.getPesoDecolagem()){
+		}
+		
+		if(temp == 5) {
+			if(comp.cartaAtual.getPesoDecolagem() > jogador.cartaAtual.getPesoDecolagem())
 				return 1;
-			}
+				if(comp.cartaAtual.getPesoDecolagem() == jogador.cartaAtual.getPesoDecolagem())
+					return 0;
+				System.out.println(comp.cartaAtual.getPesoDecolagem());
 				return 2;
-			default: if(comp.cartaAtual.getPesoDecolagem() > jogador.cartaAtual.getPesoDecolagem()){
-				return 1;
-			}
-				return 2;
-			}
 		}
 		else {
+			if(comp.cartaAtual.getPesoDecolagem() > jogador.cartaAtual.getPesoDecolagem())
+				return 1;
+				if(comp.cartaAtual.getPesoDecolagem() == jogador.cartaAtual.getPesoDecolagem())
+					return 0;
+				System.out.println(comp.cartaAtual.getPesoDecolagem());
+				return 2;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			/*switch(temp){
+			case 1: 
+				if(comp.cartaAtual.getVelocidade() > jogador.cartaAtual.getVelocidade())
+				return 1;
+				if(comp.cartaAtual.getVelocidade() == jogador.cartaAtual.getVelocidade())
+					return 0;
+				
+				System.out.println(comp.cartaAtual.getVelocidade());
+				return 2;
+			case 2: 
+				if(comp.cartaAtual.getAutonomia() > jogador.cartaAtual.getAutonomia())
+				return 1;
+				if(comp.cartaAtual.getAutonomia() == jogador.cartaAtual.getAutonomia())
+					return 0;
+				System.out.println(comp.cartaAtual.getAutonomia());
+				return 2;
+			case 3: 
+				if(comp.cartaAtual.getComprimento() > jogador.cartaAtual.getComprimento())
+				return 1;
+				if(comp.cartaAtual.getComprimento() == jogador.cartaAtual.getComprimento())
+					return 0;
+				System.out.println(comp.cartaAtual.getComprimento());
+				return 2;
+			case 4: 
+				if(comp.cartaAtual.getEnvergadura() > jogador.cartaAtual.getEnvergadura())
+				return 1;
+				if(comp.cartaAtual.getEnvergadura() == jogador.cartaAtual.getEnvergadura())
+					return 0;
+				System.out.println(comp.cartaAtual.getEnvergadura());
+				return 2;
+			case 5: 
+				if(comp.cartaAtual.getPesoDecolagem() > jogador.cartaAtual.getPesoDecolagem())
+				return 1;
+				if(comp.cartaAtual.getPesoDecolagem() == jogador.cartaAtual.getPesoDecolagem())
+					return 0;
+				System.out.println(comp.cartaAtual.getPesoDecolagem());
+				return 2;
+			default: 
+				if(comp.cartaAtual.getPesoDecolagem() > jogador.cartaAtual.getPesoDecolagem())
+				return 1;
+				return 2;
+			}*/
+		
+		/*else {
 			switch(comp.opcaoAtual){
-			case 1: if(comp.cartaAtual.getVelocidade() > jogador.cartaAtual.getVelocidade())
+			case 1: 
+				if(comp.cartaAtual.getVelocidade() > jogador.cartaAtual.getVelocidade())
 				return 1;
+				if(comp.cartaAtual.getVelocidade() == jogador.cartaAtual.getVelocidade())
+					return 0;
 				return 2;
-			case 2: if(comp.cartaAtual.getAutonomia() > jogador.cartaAtual.getAutonomia())
+			case 2: 
+				if(comp.cartaAtual.getAutonomia() > jogador.cartaAtual.getAutonomia())
 				return 1;
+				if(comp.cartaAtual.getAutonomia() == jogador.cartaAtual.getAutonomia())
+					return 0;
 				return 2;
-			case 3: if(comp.cartaAtual.getComprimento() > jogador.cartaAtual.getComprimento())
+			case 3: 
+				if(comp.cartaAtual.getComprimento() > jogador.cartaAtual.getComprimento())
 				return 1;
+				if(comp.cartaAtual.getComprimento() == jogador.cartaAtual.getComprimento())
+					return 0;
 				return 2;
-			case 4: if(comp.cartaAtual.getEnvergadura() > jogador.cartaAtual.getEnvergadura())
+			case 4: 
+				if(comp.cartaAtual.getEnvergadura() > jogador.cartaAtual.getEnvergadura())
 				return 1;
+				if(comp.cartaAtual.getEnvergadura() == jogador.cartaAtual.getEnvergadura())
+					return 0;
 				return 2;
-			case 5: if(comp.cartaAtual.getPesoDecolagem() > jogador.cartaAtual.getPesoDecolagem())
+			case 5: 
+				if(comp.cartaAtual.getPesoDecolagem() > jogador.cartaAtual.getPesoDecolagem())
 				return 1;
+				if(comp.cartaAtual.getPesoDecolagem() == jogador.cartaAtual.getPesoDecolagem())
+					return 0;
 				return 2;
-			default: if(comp.cartaAtual.getPesoDecolagem() > jogador.cartaAtual.getPesoDecolagem())
+			default: 
+				if(comp.cartaAtual.getPesoDecolagem() > jogador.cartaAtual.getPesoDecolagem())
 				return 1;
 				return 2;
 			}
-		}
+		}*/
 	}
 	
 	/*private void Sort(ArrayList<Carta> deck){
