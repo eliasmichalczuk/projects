@@ -27,21 +27,21 @@ public class Deck {
 	}
 	public void printCartas(ArrayList<Carta> deck){
 		for(Carta carta : deck) {
-			System.out.println(carta.getNome());
-			System.out.println("Velocidade: " + carta.getVelocidade());
-			System.out.println("Autonomia: " + carta.getAutonomia());
-			System.out.println("Comprimento: " + carta.getComprimento());
-			System.out.println("Envergadura: " + carta.getEnvergadura());
-			System.out.println("Peso na decolagem: " + carta.getPesoDecolagem());
+			System.out.println("------" + carta.getNome() + "------");
+			System.out.println("1 Velocidade: " + carta.getVelocidade());
+			System.out.println("2 Autonomia: " + carta.getAutonomia());
+			System.out.println("3 Comprimento: " + carta.getComprimento());
+			System.out.println("4 Envergadura: " + carta.getEnvergadura());
+			System.out.println("5 Peso na decolagem: " + carta.getPesoDecolagem());
 		}
 	}
 	public void printCarta(Carta carta){
-			System.out.println(carta.getNome());
-			System.out.println("Velocidade: " + carta.getVelocidade());
-			System.out.println("Autonomia: " + carta.getAutonomia());
-			System.out.println("Comprimento: " + carta.getComprimento());
-			System.out.println("Envergadura: " + carta.getEnvergadura());
-			System.out.println("Peso na decolagem: " + carta.getPesoDecolagem());
+			System.out.println("------" + carta.getNome() + "------");
+			System.out.println("1 Velocidade: " + carta.getVelocidade());
+			System.out.println("2 Autonomia: " + carta.getAutonomia());
+			System.out.println("3 Comprimento: " + carta.getComprimento());
+			System.out.println("4 Envergadura: " + carta.getEnvergadura());
+			System.out.println("5 Peso na decolagem: " + carta.getPesoDecolagem());
 		
 	}
 	public void addCartaDeck(Carta carta) {
@@ -53,21 +53,21 @@ public class Deck {
 		return atual;
 		
 	}*/
-	public int getRoundResult(Usuario jogador, Usuario comp) {
+	public static int getRoundResult(Usuario jogador, Usuario comp) {
 		//TODO: pegar atributo com corresponde a opcao + 1
 		/*if(jogador.opcaoAtual != 0)*/
 		int temp = 0;
-		if(jogador.opcaoAtual != 0) temp = 2;
-		else temp = 1;
+		if(jogador.opcaoAtual != 0) temp = jogador.opcaoAtual;
+		else temp = comp.opcaoAtual;
 		
 		if(temp == 1) {
 			if(comp.cartaAtual.getVelocidade() > jogador.cartaAtual.getVelocidade())
-				return 1;
+				return 2;
 				if(comp.cartaAtual.getVelocidade() == jogador.cartaAtual.getVelocidade())
 					return 0;
 				
 				System.out.println(comp.cartaAtual.getVelocidade());
-				return 2;
+				return 1;
 				
 		}
 		if(temp == 2) {
@@ -113,6 +113,7 @@ public class Deck {
 				System.out.println(comp.cartaAtual.getPesoDecolagem());
 				return 2;
 		}
+	
 		
 		
 		

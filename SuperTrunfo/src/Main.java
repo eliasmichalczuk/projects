@@ -29,9 +29,9 @@ public class Main {
 		
 		/*int chunkSize = total.size() % 2 == 0 ? total.size() / 2 : (total.size() / 2) + 1;*/
 		//TODO: converter list pra arraylist e dar o resultado para o deck do computador
-		ArrayList temp = new ArrayList<Carta>(deck.getDeck().subList(0, 14));
+		ArrayList temp = new ArrayList<Carta>(deck.getDeck().subList(0, 16));
 		jogador.setDeck(temp);
-		temp = new ArrayList<Carta>(deck.getDeck().subList(15, 29));
+		temp = new ArrayList<Carta>(deck.getDeck().subList(14, 30));
 		//comp.setDeck((ArrayList)deck.getDeck().subList(15, 29));
 		comp.setDeck(temp);
 		System.out.println("Atribuiu as cartas");
@@ -84,7 +84,7 @@ public class Main {
 			if(_vencedor == 2){
 				if(!cartasEmpate.getDeck().isEmpty()) {
 					for(Carta carta : cartasEmpate.getDeck()) {
-						comp.addCartaDeck(carta);
+						jogador.addCartaDeck(carta);
 					}
 				}
 				jogador.addCartaDeck(comp.cartaAtual);
@@ -147,12 +147,17 @@ public class Main {
 		valores[4] = pesoDecolagem;
 		
 		int indexOfMax = 0;
+		System.out.println("\nPRINT LENGTH");
+		System.out.println(valores.length);
 		for (int i=0; i < valores.length; i++) {
 	       valores[i] /= count;
 	    }
 	    for (int i=0; i < valores.length; i++) {
-	        if (valores[i] > valores[indexOfMax])
+	        if (valores[i] > valores[indexOfMax]) {
+	        	System.out.println("\nPRINT VALOR DO INDEX " + valores[indexOfMax]);
 	            indexOfMax = i;
+	        }
+	        	
 	    }
 	    return indexOfMax+1;
 	}
