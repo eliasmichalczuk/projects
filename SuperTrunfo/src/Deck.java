@@ -113,18 +113,6 @@ public class Deck {
 				System.out.println(comp.cartaAtual.getPesoDecolagem());
 				return 2;
 		}
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 			/*switch(temp){
